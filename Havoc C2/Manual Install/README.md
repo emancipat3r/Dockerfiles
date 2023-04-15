@@ -1,11 +1,14 @@
 
 ```bash
 ----> BUILDING THE CLIENT
+# As of right now downgrading libvulkan1 helps fix broken dependencies
+apt-get install libvulkan1=1.2.162.0-1
+
 # Install aptitude because it's better at resolving dependencies
 apt-get install -y aptitude
 
 # Install Havoc C2 & Python 3.10 requirements
-aptitude install -y git build-essential apt-utils cmake libfontconfig1 libglu1-mesa-dev libgtest-dev libspdlog-dev libboost-all-dev libncurses5-dev libgdbm-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev mesa-common-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5websockets5 libqt5websockets5-dev qtdeclarative5-dev golang-go qtbase5-dev libqt5websockets5-dev libspdlog-dev python3-dev libboost-all-dev mingw-w64 nasm zlib1g-dev libnss3-dev wget
+aptitude install -y git build-essential apt-utils cmake libfontconfig1 libglu1-mesa-dev libgtest-dev libspdlog-dev libboost-all-dev libncurses5-dev libgdbm-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev mesa-common-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5websockets5 libqt5websockets5-dev qtdeclarative5-dev golang-go libqt5websockets5-dev libspdlog-dev python3-dev libboost-all-dev mingw-w64 nasm zlib1g-dev libnss3-dev wget libvulkan-dev
 
 # Download Python 3.10
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
