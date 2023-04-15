@@ -67,7 +67,7 @@ make
 # Run Teamserver
 ./teamserver server --profile ./profiles/havoc.yaotl -v
 
-# Run Client
+# Run Client (Needs to be run as non-root user)
 ./Havoc
 
 ----> TEAMSERVER DEFAULT CREDENTIALS
