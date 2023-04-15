@@ -16,9 +16,15 @@ RUN apt-get install -y git build-essential apt-utils cmake libfontconfig1 libglu
 # Clone the repository
 RUN git clone https://github.com/HavocFramework/Havoc.git /opt
 
-# Build Havoc Client
-RUN cd /opt/Havoc/Client && \
+# Build Havoc Teamserver
+RUN cd /opt/Havoc/Teamserver && \
+    go mod download golang.org/x/sys  && \
+    go mod download github.com/ugorji/go && \
+    sh -c "./Install.sh" && \
     make
 
-# Run Havoc Client
-ENTRYPOINT /opt/Havoc/Client/Havoc
+# Expose Teamserver port
+EXPOSE 40056
+
+# Run Havoc Teamserver
+CMD /opt/Havoc/Teamserver/teamserver server --profile /opt/Havoc/Teamserver/profiles/havoc.yaotl -v --debug
