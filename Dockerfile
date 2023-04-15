@@ -1,4 +1,4 @@
-# DESCRIPTION:  Create Havoc C2 Client and Teamserver in a container 
+# DESCRIPTION:  Create Havoc C2 Teamserver in a container 
 
 # Start from a Kali Linux base image
 FROM kalilinux/kali-rolling
