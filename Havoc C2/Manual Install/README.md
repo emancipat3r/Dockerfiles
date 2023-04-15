@@ -21,7 +21,14 @@ make -j$(nproc)
 # Install the compiled Python 3.10
 make altinstall
 
+# Prep for git clone
+cd /opt
+git clone https://github.com/HavocFramework/Havoc.git
+cd Havoc/Client
+
 # Modify /opt/Havoc/Client/CMakeLists.txt with the following
+vim CMakeLists.txt
+
 target_link_libraries(
         ${PROJECT_NAME}
         ${REQUIRED_LIBS_QUALIFIED}
