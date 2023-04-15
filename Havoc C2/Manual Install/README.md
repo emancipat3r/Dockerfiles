@@ -1,7 +1,7 @@
 
 ```bash
 ----> BUILDING THE CLIENT
-# As of right now downgrading libvulkan1 helps fix broken dependencies
+# As of right now downgrading libvulkan1 helps fix broken dependencies which will hang up installing dependencies
 apt-get install libvulkan1=1.2.162.0-1
 
 # Install aptitude because it's better at resolving dependencies
