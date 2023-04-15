@@ -13,4 +13,7 @@ sudo docker run -d --name havoc-client --network havoc-network -p 5900:5900 havo
 
 # 5. Run the Havoc Teamserver container:
 sudo docker run -d --name havoc-teamserver --network havoc-network -p 40056:40056 havoc-teamserver
+
+# 6. Connect to havoc-client container's VNC server to gain access to the C2 panel
+vncviewer <Docker_host_IP>:5900
 ```
