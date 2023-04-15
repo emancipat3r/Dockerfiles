@@ -62,4 +62,15 @@ rm -f /bin/go
 
 # Compile Teamserver binary
 make
+
+----> START TEAMSERVER
+# Run Teamserver
+./teamserver server --profile ./profiles/havoc.yaotl -v
+
+# Run Client
+./Havoc
+
+----> TEAMSERVER DEFAULT CREDENTIALS
+user "5pider" OR "Neo"
+Password = "password1234"
 ```
