@@ -2,7 +2,7 @@
 ```bash
 ----> BUILDING THE CLIENT
 # As of right now downgrading libvulkan1 helps fix broken dependencies which will hang up installing dependencies
-apt-get install libvulkan1=1.2.162.0-1
+apt-get install -y libvulkan1=1.2.162.0-1
 
 # Install aptitude because it's better at resolving dependencies
 apt-get install -y aptitude
@@ -66,6 +66,9 @@ tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz
 
 ## Add the Go binary directory to your $PATH variable by adding the following line to your ~/.profile or ~/.bashrc file
 export PATH=$PATH:/usr/local/go/bin
+
+## Reload environment settings to apply addition of new Go path to $PATH
+source ~/.bashrc
 
 ## Remove old Go binary
 rm -f /bin/go
