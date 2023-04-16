@@ -8,7 +8,7 @@ fi
 echo -e "\n\n\nStep 1: ----> BUILDING THE CLIENT"
 
 echo -e "\n\n\nStep 1.1: Downgrading libvulkan1"
-apt-get install -y libvulkan1=1.2.162.0-1
+apt-get install -y --allow-downgrades libvulkan1=1.2.162.0-1 libhwloc15=2.4.1+dfsg-1 libnss3=2:3.61-1+deb11u3 libnspr4-dev=2:4.29-1 libnspr4=2:4.29-1
 
 #echo -e "\n\n\nStep 1.2: Installing aptitude"
 #apt-get install -y aptitude
