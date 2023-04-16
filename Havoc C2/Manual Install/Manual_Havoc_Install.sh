@@ -81,6 +81,6 @@ echo -e "\n[-] Credentials"
 echo -e "\tUSER: 5pider OR Neo"
 echo -e "\tPASS: password1234"
 
-echo "[-] The installation is complete."
-echo "[-] Please run 'source ~/.bashrc' in your terminal to update the environment variables."
+echo -e "\n [-] The installation is complete."
+echo "[-] Please run 'source ~/.bashrc' in your terminal to update the environment variables if you need Go"
 
