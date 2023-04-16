@@ -74,7 +74,7 @@ make
 echo -e "\n======================================="
 echo "#        INSTALLATION COMPLETE        #"
 echo "======================================="
-echo -e "\n [-] Run the teamserver
+echo -e "\n [-] Run the teamserver"
 echo -e '\t./teamserver server --profile ./profiles/havoc.yaotl -v'
 
 echo -e '\n[-] Run the client (needs to be run as non-root user)'
