@@ -77,3 +77,8 @@ echo "./Havoc"
 echo -e "\n\n\nStep 4: ----> TEAMSERVER DEFAULT CREDENTIALS"
 echo "USER: 5pider OR Neo
 echo "PASS: password1234"
+echo -e "=================================================================\n\n\n"
+
+echo "[-] The installation is complete."
+echo "[-] Please run 'source ~/.bashrc' in your terminal to update the environment variables."
+
