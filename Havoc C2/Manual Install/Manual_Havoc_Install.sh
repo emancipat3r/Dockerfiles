@@ -57,7 +57,7 @@ echo -e "\n\n\nStep 2.3: Installing MUSL C Compiler"
 echo -e "\n\n\nStep 2.4: Installing Go version 1.18"
 wget https://go.dev/dl/go1.18.1.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz
-echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
+echo "export PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
 source /root/.bashrc
 rm -f /bin/go
 
