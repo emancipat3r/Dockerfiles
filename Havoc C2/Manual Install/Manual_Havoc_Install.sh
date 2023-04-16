@@ -1,5 +1,7 @@
 #!/bin/bash
 
+start_time=$(date +%s)
+
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
@@ -82,6 +84,9 @@ echo -e "\n[-] Credentials"
 echo -e "\tUSER: 5pider OR Neo"
 echo -e "\tPASS: password1234"
 
-echo -e "\n [-] The installation is complete."
+end_time=$(date +%s)
+time_elapsed=$((end_time - start_time))
+minutes=$((time_elapsed / 60))
+seconds=$((time_elapsed % 60))
+echo -e "\n [-] Installation completed in $minutes minutes $seconds seconds"
 echo "[-] Please run 'source ~/.bashrc' in your terminal to update the environment variables if you need Go"
-
