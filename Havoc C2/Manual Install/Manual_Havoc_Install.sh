@@ -61,23 +61,25 @@ echo "export PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
 source /root/.bashrc
 rm -f /bin/go
 
-echo "[-] Press any key to continue, or Ctrl+C to exit the script."
-read -n 1 -s
 
 echo -e "\n\n\nStep 2.5: Compiling Teamserver binary"
-make
+# Using absolute path of new version of Go because source /root/.bashrc only sets the env variable for the script process
+# Editing the makefile to account for this absolute path
+sed -i 's#^GOCMD.*#GOCMD\t= /usr/local/go/bin/go#' /opt/Havoc/Teamserver/makefile
+make                      
 
-echo -e "\n\n\nStep 3: ----> START TEAMSERVER"
-echo -e "\n\n\nRun Teamserver:"
-echo "./teamserver server --profile ./profiles/havoc.yaotl -v"
+echo "======================================="
+echo "#        INSTALLATION COMPLETE        #"
+echo "======================================="
+echo -e "\n [-] Run the teamserver
+echo -e "\t./teamserver server --profile ./profiles/havoc.yaotl -v"
 
-echo -e "\n\n\nRun Client (Needs to be run as non-root user):"
-echo "./Havoc"
+echo -e "\n[-] Run the client (ceeds to be run as non-root user)"
+echo -e "\t./Havoc"
 
-echo -e "\n\n\nStep 4: ----> TEAMSERVER DEFAULT CREDENTIALS"
-echo "USER: 5pider OR Neo
-echo "PASS: password1234"
-echo -e "=================================================================\n\n\n"
+echo -e "\n[-] Credentials"
+echo -e "\tUSER: 5pider OR Neo"
+echo -e "\tPASS: password1234"
 
 echo "[-] The installation is complete."
 echo "[-] Please run 'source ~/.bashrc' in your terminal to update the environment variables."
