@@ -68,13 +68,13 @@ echo -e "\n\n\nStep 2.5: Compiling Teamserver binary"
 sed -i 's#^GOCMD.*#GOCMD\t= /usr/local/go/bin/go#' /opt/Havoc/Teamserver/makefile
 make                      
 
-echo "======================================="
+echo -e "\n======================================="
 echo "#        INSTALLATION COMPLETE        #"
 echo "======================================="
 echo -e "\n [-] Run the teamserver
 echo -e "\t./teamserver server --profile ./profiles/havoc.yaotl -v"
 
-echo -e "\n[-] Run the client (ceeds to be run as non-root user)"
+echo -e '\n[-] Run the client (needs to be run as non-root user)'
 echo -e "\t./Havoc"
 
 echo -e "\n[-] Credentials"
