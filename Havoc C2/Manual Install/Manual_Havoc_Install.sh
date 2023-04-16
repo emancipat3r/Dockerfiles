@@ -61,6 +61,9 @@ echo "export PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
 source /root/.bashrc
 rm -f /bin/go
 
+echo "[-] Press any key to continue, or Ctrl+C to exit the script."
+read -n 1 -s
+
 echo -e "\n\n\nStep 2.5: Compiling Teamserver binary"
 make
 
