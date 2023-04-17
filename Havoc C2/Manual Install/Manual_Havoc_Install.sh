@@ -11,7 +11,7 @@ echo -e "\n======================================="
 echo "#        BUILDING CLIENT              #"
 echo "======================================="
 
-echo -e "\n\n\nStep 1.1: Downgrading libvulkan1"
+echo -e "Step 1.1: Downgrading libvulkan1"
 apt-get install -y --allow-downgrades libvulkan1=1.2.162.0-1 libhwloc15=2.4.1+dfsg-1 libnss3=2:3.61-1+deb11u3 libnspr4-dev=2:4.29-1 libnspr4=2:4.29-1
 
 echo -e "\n\n\nStep 1.2: Installing Havoc C2 & Python 3.10 requirements"
@@ -46,7 +46,7 @@ echo -e "\n======================================="
 echo "#        BUILDING TEAMSERVER          #"
 echo "======================================="
 
-echo -e "\n\n\nStep 2.1: Navigating into Teamserver directory"
+echo -e "Step 2.1: Navigating into Teamserver directory"
 cd /opt/Havoc/Teamserver
 
 echo -e "\n\n\nStep 2.2: Installing Go dependencies"
@@ -74,7 +74,7 @@ make
 echo -e "\n======================================="
 echo "#        INSTALLATION COMPLETE        #"
 echo "======================================="
-echo -e "\n [-] Run the teamserver"
+echo -e "\n[-] Run the teamserver"
 echo -e '\t./teamserver server --profile ./profiles/havoc.yaotl -v'
 
 echo -e '\n[-] Run the client (needs to be run as non-root user)'
@@ -87,5 +87,5 @@ end_time=$(date +%s)
 time_elapsed=$((end_time - start_time))
 minutes=$((time_elapsed / 60))
 seconds=$((time_elapsed % 60))
-echo -e "\n [-] Installation completed in $minutes minutes $seconds seconds"
+echo -e "\n[-] Installation completed in $minutes minutes $seconds seconds"
 echo '[-] Please run 'source ~/.bashrc' in your terminal to update the environment variables if you need Go'
