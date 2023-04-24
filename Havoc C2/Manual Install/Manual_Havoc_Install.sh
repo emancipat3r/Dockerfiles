@@ -7,9 +7,9 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-echo -e "\n======================================="
-echo "#        BUILDING CLIENT              #"
-echo "======================================="
+echo -e "\n============================================="
+echo "#        BUILDING CLIENT AND TEAMSERVER     #"
+echo "============================================="
 
 echo -e "Step 1.1: Downgrading libvulkan1"
 apt-get install -y --allow-downgrades libvulkan1=1.2.162.0-1 libhwloc15=2.4.1+dfsg-1 libnss3=2:3.61-1+deb11u3 libnspr4-dev=2:4.29-1 libnspr4=2:4.29-1
@@ -42,22 +42,18 @@ sed -i '/${Boost_LIBRARIES}/a \        ${CMAKE_DL_LIBS}\n        util' /opt/Havo
 echo -e "\n\n\nStep 1.9: Compiling Havoc C2 Client"
 make
 
-echo -e "\n======================================="
-echo "#        BUILDING TEAMSERVER          #"
-echo "======================================="
-
-echo -e "Step 2.1: Navigating into Teamserver directory"
+echo -e "Step 1.10: Navigating into Teamserver directory"
 cd /opt/Havoc/Teamserver
 
-echo -e "\n\n\nStep 2.2: Installing Go dependencies"
+echo -e "\n\n\nStep 1.11: Installing Go dependencies"
 go mod download golang.org/x/sys  
 go mod download github.com/ugorji/go
 
-echo -e "\n\n\nStep 2.3: Installing MUSL C Compiler"
+echo -e "\n\n\nStep 1.12: Installing MUSL C Compiler"
 ./Install.sh
 
 
-echo -e "\n\n\nStep 2.4: Installing Go version 1.18"
+echo -e "\n\n\nStep 1.13: Installing Go version 1.18"
 wget https://go.dev/dl/go1.18.1.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz
 echo "export PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
@@ -65,7 +61,7 @@ source /root/.bashrc
 rm -f /bin/go
 
 
-echo -e "\n\n\nStep 2.5: Compiling Teamserver binary"
+echo -e "\n\n\nStep 1.14: Compiling Teamserver and Client binaries"
 # Using absolute path of new version of Go because source /root/.bashrc only sets the env variable for the script process
 # Editing the makefile to account for this absolute path
 # Below is no longer needed because client and teamserver makefiles were merged and moved up a directory
