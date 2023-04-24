@@ -68,7 +68,8 @@ rm -f /bin/go
 echo -e "\n\n\nStep 2.5: Compiling Teamserver binary"
 # Using absolute path of new version of Go because source /root/.bashrc only sets the env variable for the script process
 # Editing the makefile to account for this absolute path
-sed -i 's#^GOCMD.*#GOCMD\t= /usr/local/go/bin/go#' /opt/Havoc/Teamserver/makefile
+# Below is no longer needed because client and teamserver makefiles were merged and moved up a directory
+# sed -i 's#^GOCMD.*#GOCMD\t= /usr/local/go/bin/go#' /opt/Havoc/Teamserver/makefile
 cd /opt/Havoc && make                      
 
 if [ -f /opt/Havoc/teamserver/teamserver ]; then
@@ -91,5 +92,5 @@ if [ -f /opt/Havoc/teamserver/teamserver ]; then
   echo -e "\n[-] Installation completed in $minutes minutes $seconds seconds"
   echo '[-] Please run 'source ~/.bashrc' in your terminal to update the environment variables if you need Go'
 else
-  echo "[-] Install failed
+  echo "[-] Install failed"
 fi
