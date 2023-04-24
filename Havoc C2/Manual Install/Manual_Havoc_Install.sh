@@ -69,23 +69,27 @@ echo -e "\n\n\nStep 2.5: Compiling Teamserver binary"
 # Using absolute path of new version of Go because source /root/.bashrc only sets the env variable for the script process
 # Editing the makefile to account for this absolute path
 sed -i 's#^GOCMD.*#GOCMD\t= /usr/local/go/bin/go#' /opt/Havoc/Teamserver/makefile
-make                      
+cd /opt/Havoc && make                      
 
-echo -e "\n======================================="
-echo "#        INSTALLATION COMPLETE        #"
-echo "======================================="
-echo -e "\n[-] Run the teamserver"
-echo -e '\t./teamserver server --profile ./profiles/havoc.yaotl -v'
+if [ -f /opt/Havoc/teamserver/teamserver ]; then
+  echo -e "\n======================================="
+  echo "#        INSTALLATION COMPLETE        #"
+  echo "======================================="
+  echo -e "\n[-] Run the teamserver"
+  echo -e '\t./teamserver server --profile ./profiles/havoc.yaotl -v'
 
-echo -e '\n[-] Run the client (needs to be run as non-root user)'
-echo -e '\t./Havoc'
+  echo -e '\n[-] Run the client (needs to be run as non-root user)'
+  echo -e '\t./Havoc'
 
-echo -e '\n[-] Credentials'
-echo -e '\tUSER: 5pider OR Neo'
-echo -e '\tPASS: password1234'
-end_time=$(date +%s)
-time_elapsed=$((end_time - start_time))
-minutes=$((time_elapsed / 60))
-seconds=$((time_elapsed % 60))
-echo -e "\n[-] Installation completed in $minutes minutes $seconds seconds"
-echo '[-] Please run 'source ~/.bashrc' in your terminal to update the environment variables if you need Go'
+  echo -e '\n[-] Credentials'
+  echo -e '\tUSER: 5pider OR Neo'
+  echo -e '\tPASS: password1234'
+  end_time=$(date +%s)
+  time_elapsed=$((end_time - start_time))
+  minutes=$((time_elapsed / 60))
+  seconds=$((time_elapsed % 60))
+  echo -e "\n[-] Installation completed in $minutes minutes $seconds seconds"
+  echo '[-] Please run 'source ~/.bashrc' in your terminal to update the environment variables if you need Go'
+else
+  echo "[-] Install failed
+fi
