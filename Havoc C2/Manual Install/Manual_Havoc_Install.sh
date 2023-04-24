@@ -37,7 +37,7 @@ git clone https://github.com/HavocFramework/Havoc.git
 cd Havoc/Client
 
 echo -e "\n\n\nStep 1.8: Modifying /opt/Havoc/Client/CMakeLists.txt"
-sed -i '/${Boost_LIBRARIES}/a \        ${CMAKE_DL_LIBS}\n        util' CMakeLists.txt
+sed -i '/${Boost_LIBRARIES}/a \        ${CMAKE_DL_LIBS}\n        util' /opt/Havoc/client/CMakeLists.txt
 
 echo -e "\n\n\nStep 1.9: Compiling Havoc C2 Client"
 make
